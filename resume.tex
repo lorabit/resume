@@ -1,0 +1,180 @@
+%-------------------------
+% Resume in Latex
+% Author : Sourabh Bajaj
+% License : MIT
+%------------------------
+
+\documentclass[letterpaper,11pt]{article}
+
+\usepackage{latexsym}
+\usepackage[empty]{fullpage}
+\usepackage{titlesec}
+\usepackage{marvosym}
+\usepackage[usenames,dvipsnames]{color}
+\usepackage{verbatim}
+\usepackage{enumitem}
+\usepackage[pdftex]{hyperref}
+\usepackage{fancyhdr}
+
+
+\pagestyle{fancy}
+\fancyhf{} % clear all header and footer fields
+\fancyfoot{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+
+% Adjust margins
+\addtolength{\oddsidemargin}{-0.375in}
+\addtolength{\evensidemargin}{-0.375in}
+\addtolength{\textwidth}{1in}
+\addtolength{\topmargin}{-.5in}
+\addtolength{\textheight}{1.0in}
+
+\urlstyle{same}
+
+\raggedbottom
+\raggedright
+\setlength{\tabcolsep}{0in}
+
+% Sections formatting
+\titleformat{\section}{
+  \vspace{-4pt}\scshape\raggedright\large
+}{}{0em}{}[\color{black}\titlerule \vspace{-5pt}]
+
+%-------------------------
+% Custom commands
+\newcommand{\resumeItem}[2]{
+  \item\small{
+    \textbf{#1}{: #2 \vspace{-2pt}}
+  }
+}
+
+\newcommand{\resumeSubheading}[4]{
+  \vspace{-1pt}\item
+    \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
+      \textbf{#1} & #2 \\
+      \textit{\small#3} & \textit{\small #4} \\
+    \end{tabular*}\vspace{-5pt}
+}
+
+\newcommand{\resumeSubItem}[2]{\resumeItem{#1}{#2}\vspace{-4pt}}
+
+\renewcommand{\labelitemii}{$\circ$}
+
+\newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=*]}
+\newcommand{\resumeSubHeadingListEnd}{\end{itemize}}
+\newcommand{\resumeItemListStart}{\begin{itemize}}
+\newcommand{\resumeItemListEnd}{\end{itemize}\vspace{-5pt}}
+
+%-------------------------------------------
+%%%%%%  CV STARTS HERE  %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\begin{document}
+
+%----------HEADING-----------------
+\begin{tabular*}{\textwidth}{l@{\extracolsep{\fill}}r}
+  \textbf{\href{http://www.lorabit.com/}{\Large Yanan Xie}} & Email : \href{mailto:yaxie@ucsc.edu}{yaxie@ucsc.edu}\\
+  \href{http://lorabit.com/}{http://www.lorabit.com} & Mobile : +1-831-346-9038 \\
+\end{tabular*}
+
+
+%-----------EDUCATION-----------------
+\section{Education}
+  \resumeSubHeadingListStart
+    \resumeSubheading
+      {University of California, Santa Cruz}{Santa Cruz, CA}
+      {Master of Science in Computer Science;  Advisor: Prof. Yi Zhang}{Sep. 2016 -- Dec. 2017(expected)}
+       \resumeItemListStart
+        \resumeItem{Major courses:}{Algorithm Analysis, Image Processing and Computer Vision}
+        \resumeItemListEnd
+    \resumeSubheading
+      {Zhejiang University}{Hangzhou, China}
+      {Bachelor of Engineering in Computer Science; Advisor: Prof. Jian Wu}{Sep. 2010 -- June. 2014}
+       \resumeItemListStart
+        \resumeItem{Major courses:}{C Programming, Database System, Data Structure, Artificial Intelligence, Software Architecture}
+        \resumeItemListEnd
+  \resumeSubHeadingListEnd
+
+
+%-----------EXPERIENCE-----------------
+\section{Experience}
+  \resumeSubHeadingListStart
+    \resumeSubheading
+      {WithMe(Early Stage Startup)}{Hangzhou, China}
+      {Full-Stack Developer}{Aug 2015 - Aug 2016}
+      \resumeItemListStart
+        % \resumeItem{Tech Stack} 
+        % {Objective-C, C++, JavaScript, HTML, Python, and SQLite3}
+        \resumeItem{Prototyping}
+          {Fast built an MVP(a hybrid app) in days to verify key business assumptions.}
+        \resumeItem{Leadership}
+          {Successfully led the iOS dev team of 3 delivering high-quality apps on time. Provided data structure and  algorithm training to all engineers of the company.}
+        \resumeItem{ORM Component}
+          {Developed a thread-safe ORM component WMCache based on SQLite3 and Objective-C runtime methods. It is still used as a fundamental component in apps developed by WithMe.}
+        \resumeItem{Data Synchronization}
+          {Designed the basic data synchronization strategy, and implemented a multi-observer listener component which has significantly reduced the complexity of data logic, and is still used as a fundamental component.}
+        \resumeItem{A/B Test}
+          {Implemented a configurable A/B test toolkit to collect and analysis user behaviors.}
+      \resumeItemListEnd
+
+    \resumeSubheading
+      {Alibaba}{Hangzhou, China}
+      {Software Development Engineer}{Jun 2014 - May 2015}
+      \resumeItemListStart
+        % \resumeItem{Tech Stack}
+        %   {Linux, PHP, Python, Redis, MySQL, MongoDB, JavaScript, and HTML}
+        \resumeItem{Crowd-Sourcing Data Labeling System}
+          {Built the whole system including front end and back end. Implemented a random pre-assignment mechanism to implement a high-performance task distribution system, handling over 1,000,000 labeled data per day with a single server.}
+        \resumeItem{Search Engine Debug and Test Toolbox}
+          {Built several internal tools including stress simulation, search engine pipeline visualization and search result evaluation for search algorithm groups. }
+      \resumeItemListEnd
+
+    \resumeSubheading
+      {University of California, Santa Barbara}{Santa Barbara, CA}
+      {Visiting Research Assistant}{May 2013 - Oct 2013}
+      \resumeItemListStart
+        \resumeItem{Open Information Extraction}
+          {Identified the main reason existing extractors failed on complex sentences was that they wrongly parsed those nested sentences. Built a knowledge-graph-based natural language parser with Java with improved performance in our criminal report corpus.}
+        \resumeItem{Knowledge Graph Visualization}
+          {Built an interactive knowledge graph explorer and a graph query composer  with JavaScript. Published a demo paper in SIGMOD 2014.}
+      \resumeItemListEnd
+  \resumeSubHeadingListEnd
+
+
+%-----------PROJECTS-----------------
+\section{Projects}
+  \resumeSubHeadingListStart
+    \resumeSubItem{Mini Database}
+      {A relational database supports basic SQL grammars including {\it create table}, {\it create index}, {\it insert}, {\it delete}, and {\it select}. B+ tree was implemented as the indexing data structure. Built with C.}
+    \resumeSubItem{Remote Desktop}
+      {Users are allowed to monitor their PC(a server software is required) in the website. Built with JavaScript and Delphi.}
+    \resumeSubItem{Personal News Radio}
+      {An iOS app that recommend news to users based on implicit feedback. A reinforcement learning recommendation system was implemented.}
+    \resumeSubItem{Book Price Comparison Portal}
+      {Price comparison website and search engine for Chinese books. Achieved 18,000 DAU / 1,000,000 pages indexed by Baidu. Stochastic DFS algorithm was utilized to recommend purchase strategies. Built with C\# and JavaScript.}
+  \resumeSubHeadingListEnd
+
+
+%--------PROGRAMMING SKILLS------------
+% \section{Awards}
+%   \resumeSubHeadingListStart
+%     \item{
+%       {China Computer Federation Outstanding Undergraduate (99 in China) \hfill 2013}\\
+%       {Third Prize for ACM ICPC in Zhejiang Province \hfill 2011}\\
+%       {First Prize, National Olympiad in Informatics in Provinces \hfill 2008, 2009}
+      
+%     }
+%   \resumeSubHeadingListEnd
+
+\section{Programming Skills}
+  \resumeSubHeadingListStart
+    \item{\textbf{Languages:}
+      {C++, C\#, Delphi, Python, SQL, JavaScript, Java, Objective-C}
+    }\\
+    \textbf{Technologies:}{
+      Unix/Linux, MySQL, MongoDB, Redis, TensorFlow, Yii, Apache, NGINX
+    }
+  \resumeSubHeadingListEnd
+%-------------------------------------------
+\end{document}
