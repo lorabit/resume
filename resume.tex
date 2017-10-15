@@ -17,6 +17,7 @@
 \usepackage{fancyhdr}
 
 
+
 \pagestyle{fancy}
 \fancyhf{} % clear all header and footer fields
 \fancyfoot{}
@@ -24,11 +25,11 @@
 \renewcommand{\footrulewidth}{0pt}
 
 % Adjust margins
-\addtolength{\oddsidemargin}{-0.375in}
-\addtolength{\evensidemargin}{-0.375in}
-\addtolength{\textwidth}{1in}
+\addtolength{\oddsidemargin}{-0.575in}
+\addtolength{\evensidemargin}{-0.575in}
+\addtolength{\textwidth}{1.2in}
 \addtolength{\topmargin}{-.5in}
-\addtolength{\textheight}{1.0in}
+\addtolength{\textheight}{0.8in}
 
 \urlstyle{same}
 
@@ -70,6 +71,21 @@
 %%%%%%  CV STARTS HERE  %%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
+\makeatletter
+\newlength{\bibhang}
+\setlength{\bibhang}{0.1em} %1em}
+\newlength{\bibsep}
+ {\@listi \global\bibsep\itemsep \global\advance\bibsep by\parsep}
+\newenvironment{bibsection}%
+        {\begin{enumerate}{}{%
+%        {\begin{list}{}{%
+}
+\small
+        }
+        {\end{enumerate}}
+%        {\end{list}\vspace{-.6\baselineskip}}
+\makeatother
+
 \begin{document}
 
 %----------HEADING-----------------
@@ -104,28 +120,26 @@
       {Google}{Mountain View, California}
       {Software Engineering Intern}{Jun 2017 - Sep 2017}
       \resumeItemListStart
-        \resumeItem{Database Migration}
-          {Designed and built a service in Java based on Google's internal microservices platform - Boq,  as an intermediary layer between applications and database to hide database migration process from applications.}
-        \resumeItem{Data Processing}
-          {Wrote a flume job to convert massive log files from ProtoBuf format to text format.}
+        \resumeItem{Data Migration Design}
+          {Designed the process to migrate a table from Google's internal KVS - Kansas to another internal DBMS - Spanner. The table serves several applications with different data consistency requirements.}
+        \resumeItem{Independent Service Development}
+          {Developed and launched an independent service in Java with several Google technologies - Apps Framework, Boq, Guice, Kansas, Protocol Buffer, Spanner. The service is used as an intermediary layer between applications and database to hide database migration process from applications.}
+        \resumeItem{Data Processing}  
+          {Wrote a flume job to convert massive log files from protobuf format to human-readable text format.}
       \resumeItemListEnd
 
     \resumeSubheading
       {WithMe(Early Stage Startup)}{Hangzhou, China}
       {Full-Stack Developer}{Aug 2015 - Aug 2016}
       \resumeItemListStart
-        % \resumeItem{Tech Stack} 
-        % {Objective-C, C++, JavaScript, HTML, Python, and SQLite3}
         \resumeItem{Prototyping}
           {Fast built an MVP(a hybrid app) in days to verify key business assumptions.}
         \resumeItem{Leadership}
-          {Successfully led the iOS dev team of 3 delivering high-quality apps on time. Provided data structure and  algorithm training to all engineers of the company.}
+          {Successfully led the iOS dev team of 3 delivering high-quality apps on time. Provided data structure and  algorithm training to all engineers inside the company.}
         \resumeItem{ORM Component}
           {Developed a thread-safe ORM component WMCache based on SQLite3 and Objective-C runtime methods. It is still used as a fundamental component in apps developed by WithMe.}
         \resumeItem{Data Synchronization}
           {Designed the basic data synchronization strategy, and implemented a multi-observer listener component which has significantly reduced the complexity of data logic, and is still used as a fundamental component.}
-        \resumeItem{A/B Test}
-          {Implemented a configurable A/B test toolkit to collect and analysis user behaviors.}
       \resumeItemListEnd
 
     \resumeSubheading
@@ -135,56 +149,38 @@
         % \resumeItem{Tech Stack}
         %   {Linux, PHP, Python, Redis, MySQL, MongoDB, JavaScript, and HTML}
         \resumeItem{Crowd-Sourcing Data Labeling System}
-          {Built the whole system including front end and back end. Implemented a random pre-assignment mechanism to implement a high-performance task distribution system, handling over 1,000,000 labeled data per day with a single server.}
+          {Built the whole system including the front end and back end. Implemented a random pre-assignment mechanism to implement a high-performance task distribution system, handling over 1,000,000 labeled data per day with a single server.}
         \resumeItem{Search Engine Debug and Test Toolbox}
           {Built several internal tools including stress simulation, search engine pipeline visualization and search result evaluation for search algorithm groups. }
       \resumeItemListEnd
 
-    \resumeSubheading
-      {University of California, Santa Barbara}{Santa Barbara, CA}
-      {Visiting Research Assistant}{May 2013 - Oct 2013}
-      \resumeItemListStart
-        \resumeItem{Open Information Extraction}
-          {Identified the main reason existing extractors failed on complex sentences was that they wrongly parsed those nested sentences. Built a knowledge-graph-based natural language parser with Java with improved performance in our criminal report corpus.}
-        \resumeItem{Knowledge Graph Visualization}
-          {Built an interactive knowledge graph explorer and a graph query composer  with JavaScript. Published a demo paper in SIGMOD 2014.}
-      \resumeItemListEnd
   \resumeSubHeadingListEnd
 
 
 %-----------PROJECTS-----------------
 \section{Projects}
   \resumeSubHeadingListStart
-    \resumeSubItem{Mini Database}
-      {A relational database supports basic SQL grammars including {\it create table}, {\it create index}, {\it insert}, {\it delete}, and {\it select}. B+ tree was implemented as the indexing data structure. Built with C.}
-    \resumeSubItem{Remote Desktop}
-      {Users are allowed to monitor their PC(a server software is required) in the website. Built with JavaScript and Delphi.}
+
+    \resumeSubItem{Persistent Key-Value Store}
+      {Implemented a KVS from scratch using memory-mapped I/O APIs, Trie-based algorithms. It outperforms industrial-level systems like Redis on SSD in terms of throughput and speed of recovering from data file.}
     \resumeSubItem{Personal News Radio}
-      {An iOS app which recommends news to users based on implicit feedback. A reinforcement learning recommendation system was implemented.}
+      {An iOS app which recommends news to users based on implicit feedback. A reinforcement learning was exploited for news recommendation.}
+    \resumeSubItem{Mini Database}
+      {Developed a relational database supports basic SQL grammars including {\it create table}, {\it create index}, {\it insert}, {\it delete}, and {\it select}. B+ tree was implemented as the indexing data structure. Written in C.}
     \resumeSubItem{Book Price Comparison Portal}
-      {Price comparison website and search engine for Chinese books. Achieved 18,000 DAU / 1,000,000 pages indexed by Baidu. Stochastic DFS algorithm was utilized to recommend purchase strategies. Built with C\# and JavaScript.}
+      {Built a price comparison website and search engine for Chinese books. Achieved 18,000 DAU / 1,000,000 pages indexed by Baidu. Stochastic DFS algorithm was utilized to recommend purchase strategies.}
   \resumeSubHeadingListEnd
 
+  
+\section{Publications}
+\begin{enumerate}
+  \small
+    \item Shengqi Yang, {\bf Yanan Xie}, Yinghui Wu, Tianyu Wu, Huan Sun, Jian Wu and Xifeng Yan.  ``SLQ: A User-friendly Graph Querying System." \emph{ACM SIGMOD Conference on Management of Data (SIGMOD 2014 Demo)}, Snowbird, Utah, USA. June 22 - 27, 2014.
+    \vspace{-5pt} \item {\bf Yanan Xie}, Liang Chen, Kunyang Jia, Lichuan Ji, Jian Wu.  ``iNewsBox: Modeling and Exploiting Implicit Feedback for Building Personalized News Radio." \emph{ACM Conference on Information and Knowledge Management (CIKM 2013 Demo)}, Burlingame, CA, USA. Oct 27 - Nov 1, 2013.
+    \vspace{-5pt} \item Jian Wu, Liang Chen, {\bf Yanan Xie}, Lichuan Ji, Zhaohui Wu.  ``Modeling and Exploring Historical Records to Facilitate Service Composition." \emph{International Journal of Web and Grid Services (IJWGS)}(accepted in April 2013).
+    \vspace{-5pt} \item Hanze Xu, {\bf Yanan Xie}, Dinglong Duan, Liang Chen, Jian Wu.  ``FTCRank: Ranking Components for Building Highly Reliable Cloud Applications." \emph{17th Pacific-Asia Conference on Knowledge Discovery and Data Mining (PAKDD 2013 Workshop)}, Gold Coast, Australia. April 14 - 17, 2013.
+    \vspace{-5pt} \item Jian Wu, Liang Chen, {\bf Yanan Xie}, Zibin Zheng. ``Titan: A System for Effective Web Service Discovery."  \emph{21th International World Wide Web Conference (WWW 2012 Demo)}, Lyon, France. April 16-20, 2012.
+\end{enumerate}
 
-%--------PROGRAMMING SKILLS------------
-% \section{Awards}
-%   \resumeSubHeadingListStart
-%     \item{
-%       {China Computer Federation Outstanding Undergraduate (99 in China) \hfill 2013}\\
-%       {Third Prize for ACM ICPC in Zhejiang Province \hfill 2011}\\
-%       {First Prize, National Olympiad in Informatics in Provinces \hfill 2008, 2009}
-      
-%     }
-%   \resumeSubHeadingListEnd
 
-\section{Programming Skills}
-  \resumeSubHeadingListStart
-    \item{\textbf{Languages:}
-      {C++, C\#, Delphi, Python, SQL, JavaScript, Java, Objective-C}
-    }\\
-    \textbf{Technologies:}{
-      Unix/Linux, MySQL, MongoDB, Redis, TensorFlow, Yii, Apache, NGINX
-    }
-  \resumeSubHeadingListEnd
-%-------------------------------------------
 \end{document}
